@@ -1,0 +1,12 @@
+<h1>Allergy Index Page</h1>
+
+
+<div>
+<div>
+<h3>Allergies:</h3>
+<ul><% @allergies.each do |allergy| %>
+    <li><%= link_to(allergy.name, allergy_path(allergy)) %></li>
+    <% end %>
+</ul>
+</div>
+

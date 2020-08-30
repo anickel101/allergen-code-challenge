@@ -1,0 +1,23 @@
+<h1>User Show Page</h1>
+
+<h3>Name:</h3>
+<%= @user.name %>
+<br>
+<h3>Recipes:</h3>
+<ul><% @user.recipes.each do |recipe| %>
+    <li><%= recipe.name %></li>
+    <% end %>
+</ul>
+
+<h3>Allergies:</h3>
+<ul><% @user.allergies.each do |allergy| %>
+    <li><%= link_to(allergy.ingredient.name, ingredient_path(allergy.ingredient)) %></li>
+    <% end %>
+</ul>
+
+
+<h3>Back to Index:</h3>
+<%= button_to("Index", users_path, method: :get) %>
+<h3>Back to Index:</h3>
+<%= button_to("Delete User", user_path(@user), method: :delete) %>
+

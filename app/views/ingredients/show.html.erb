@@ -1,0 +1,19 @@
+<h1>Ingredient Show Page</h1>
+
+<h3>Name:</h3>
+<%= @ingredient.name %>
+<br>
+<h3>Recipes:</h3>
+<ul><% @ingredient.recipes.each do |recipe| %>
+    <li><%= link_to(recipe.name, recipe_path(recipe)) %></li>
+    <% end %>
+</ul>
+
+<h3>TESTING - Allergic Users:</h3>
+<ul><% @ingredient.allergies.each do |allergy| %>
+    <li><%= link_to(allergy.user.name, user_path(allergy.user)) %></li>
+    <% end %>
+</ul>
+
+<h3>Back to Index:</h3>
+<%= button_to("Index", ingredients_path, method: :get) %>

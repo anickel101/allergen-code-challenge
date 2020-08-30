@@ -1,0 +1,25 @@
+<h3>New Recipe Form</h3>
+
+<%= @recipe %>
+<%= @recipe.ingredients.count %>
+
+<%= form_for @recipe do |f| %>
+ 
+<%= f.label "Recipe Name" %>
+  <%= f.text_field :name %><br>
+<br>
+  <%= f.fields_for :ingredients do |ingredient| %>
+    <%= ingredient.label "Ingredient Name" %>
+    <%= ingredient.text_field :name %><br>
+  <% end %>
+<br>
+User Creating This Recipe:<br>
+  <%= f.collection_select(:user_id, User.all, :id, :name) %>
+
+<br>
+<br>
+  <%= f.submit %>
+<% end %>
+
+
+<%= params.inspect %>
